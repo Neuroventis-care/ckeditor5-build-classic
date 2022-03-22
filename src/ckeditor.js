@@ -31,8 +31,10 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 
-export default class ClassicEditor extends ClassicEditorBase {}
+export default class ClassicEditor extends ClassicEditorBase { }
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
@@ -61,6 +63,8 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation,
 	FontColor,
+	Underline,
+	Alignment,
 ];
 
 // Editor configuration.
@@ -71,11 +75,13 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'bold',
 			'italic',
+			'underline',
 			'link',
 			'bulletedList',
 			'numberedList',
 			'fontColor',
 			'|',
+			'alignment',
 			'outdent',
 			'indent',
 			'|',
@@ -102,6 +108,141 @@ ClassicEditor.defaultConfig = {
 			'tableColumn',
 			'tableRow',
 			'mergeTableCells'
+		]
+	},
+	heading: {
+		options: [ {
+			model: 'paragraph',
+			title: 'Paragraph',
+			class: 'ck-heading_paragraph'
+		},
+		{
+			model: 'heading1',
+			view: 'h1',
+			title: 'Heading 1',
+			class: 'ck-heading_heading1'
+		},
+		{
+			model: 'heading2',
+			view: 'h2',
+			title: 'Heading 2',
+			class: 'ck-heading_heading2'
+		},
+		{
+			model: 'heading3',
+			view: 'h3',
+			title: 'Heading 3',
+			class: 'ck-heading_heading3'
+		},
+		{
+			model: 'heading4',
+			view: 'h4',
+			title: 'Heading 4',
+			class: 'ck-heading_heading4'
+		},
+		{
+			model: 'heading5',
+			view: 'h5',
+			title: 'Heading 5',
+			class: 'ck-heading_heading5'
+		}
+		]
+	},
+	fontColor: {
+		colors: [
+			{
+				color: 'hsl(0, 0%, 0%)',
+				label: 'Black'
+			},
+			{
+				color: 'hsl(0, 0%, 30%)',
+				label: 'Dim grey'
+			},
+			{
+				color: 'hsl(0, 0%, 60%)',
+				label: 'Grey'
+			},
+			{
+				color: 'hsl(0, 0%, 90%)',
+				label: 'Light grey'
+			},
+			{
+				color: 'hsl(0, 0%, 100%)',
+				label: 'White',
+				hasBorder: true
+			},
+			{
+				color: 'hsl(0, 75%, 60%)',
+				label: 'Red'
+			},
+			{
+				color: 'hsl(30, 75%, 60%)',
+				label: 'Orange'
+			},
+			{
+				color: 'hsl(60, 75%, 60%)',
+				label: 'Yellow'
+			},
+			{
+				color: 'hsl(90, 75%, 60%)',
+				label: 'Light green'
+			},
+			{
+				color: 'hsl(120, 75%, 60%)',
+				label: 'Green'
+			},
+			{
+				color: 'hsl(150, 75%, 60%)',
+				label: 'Aquamarine'
+			},
+			{
+				color: 'hsl(180, 75%, 60%)',
+				label: 'Turquoise'
+			},
+			{
+				color: 'hsl(210, 75%, 60%)',
+				label: 'Light blue'
+			},
+			{
+				color: 'hsl(240, 75%, 60%)',
+				label: 'Blue'
+			},
+			{
+				color: 'hsl(270, 75%, 60%)',
+				label: 'Purple'
+			},
+			{
+				color: '#6D14EE',
+				label: 'Helpilepsy - Purple'
+			},
+			{
+				color: '#7F7F7F',
+				label: 'Helpilepsy - Light grey'
+			},
+			{
+				color: '#FFB714',
+				label: 'Helpilepsy - Yellow'
+			},
+			{
+				color: '#FF6767',
+				label: 'Helpilepsy - Red'
+			},
+			{
+				color: '#333333',
+				label: 'Helpilepsy - Dark grey'
+			},
+			{
+				color: '#a772f5',
+				label: 'Helpilepsy - Light purple'
+			},
+			{
+				color: '#410c8f',
+				label: 'Helpilepsy - Dark purple'
+			},
+			{
+				color: '#08CB00',
+				label: 'Helpilepsy - Green'
+			},
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
